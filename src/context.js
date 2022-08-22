@@ -11,7 +11,7 @@ const API_ENDPOINT = 'https://opentdb.com/api.php?';
 
 const url = '';
 // const tempUrl = `${API_ENDPOINT}amount=50&category=24&difficulty=medium`;
-const tempUrl = `${API_ENDPOINT}amount=10&category=23&difficulty=easy&type=multiple`;
+const tempUrl = `${API_ENDPOINT}amount=10&category=24&difficulty=easy&type=multiple`;
 
 const AppContext = React.createContext();
 
@@ -22,6 +22,11 @@ const AppProvider = ({ children }) => {
   const [index, setIndex] = useState(0);
   const [correct, setCorrect] = useState(0);
   const [error, setError] = useState(false);
+  const [quiz, setQuiz] = useState({
+    amount: 10,
+    category: 'sports',
+    difficulty: 'easy'
+  });
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -76,9 +81,17 @@ const AppProvider = ({ children }) => {
     setIsModalOpen(false);
   };
 
-  useEffect(() => {
-    fetchQuestions(tempUrl);
-  }, []);
+  const handleChange = (e) => {
+    console.log(e);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  // useEffect(() => {
+  //   fetchQuestions(tempUrl);
+  // }, []);
 
   return <AppContext.Provider
     value={{
@@ -93,7 +106,10 @@ const AppProvider = ({ children }) => {
       closeModal,
       correct,
       error,
-      isModalOpen
+      isModalOpen,
+      quiz,
+      handleChange,
+      handleSubmit
     }} >{children}</AppContext.Provider>;
 };
 // make sure use
