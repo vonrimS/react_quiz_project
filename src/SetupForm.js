@@ -14,11 +14,11 @@ const SetupForm = () => {
         <div className="form-control">
           <label htmlFor="amount">number of questions</label>
           <input
+            name="amount"
             className="form-input"
             min={1}
             max={50}
             type="number"
-            name="amount"
             id="amount"
             value={quiz.amount}
             onChange={handleChange} />
@@ -28,8 +28,8 @@ const SetupForm = () => {
         <div className="form-control">
           <label htmlFor="category">category</label>
           <select
-            className="form-input"
             name="category"
+            className="form-input"
             id="category"
             value={quiz.category}
             onChange={handleChange}
@@ -45,8 +45,8 @@ const SetupForm = () => {
         <div className="form-control">
           <label htmlFor="difficulty">select difficulty</label>
           <select
-            className="form-input"
             name="difficulty"
+            className="form-input"
             id="difficulty"
             value={quiz.difficulty}
             onChange={handleChange}
