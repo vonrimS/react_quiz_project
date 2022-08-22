@@ -21,7 +21,11 @@ function App() {
     return <Loading />;
   }
   const { question, incorrect_answers, correct_answer } = questions[index];
-  const answers = [...incorrect_answers, correct_answer];
+  const answers = ([...incorrect_answers, correct_answer])
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+
   return <main>
     <Modal />
     <section className="quiz">
