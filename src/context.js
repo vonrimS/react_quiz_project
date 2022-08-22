@@ -51,7 +51,7 @@ const AppProvider = ({ children }) => {
     setIndex((oldIndex) => {
       const index = oldIndex + 1;
       if (index > questions.length - 1) {
-        //openModal()
+        openModal();
         return 0;
       } else {
         return index;
@@ -64,6 +64,16 @@ const AppProvider = ({ children }) => {
       setCorrect((oldState) => oldState + 1);
     }
     nextQuestion();
+  };
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setWaiting(true);
+    setCorrect(0);
+    setIsModalOpen(false);
   };
 
   useEffect(() => {
@@ -79,6 +89,8 @@ const AppProvider = ({ children }) => {
       // setIndex,
       nextQuestion,
       checkAnswer,
+      openModal,
+      closeModal,
       correct,
       error,
       isModalOpen
