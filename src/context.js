@@ -9,9 +9,9 @@ const table = {
 
 const API_ENDPOINT = 'https://opentdb.com/api.php?';
 
-const url = '';
+// const url = '';
 // const tempUrl = `${API_ENDPOINT}amount=50&category=24&difficulty=medium`;
-const tempUrl = `${API_ENDPOINT}amount=10&category=24&difficulty=easy&type=multiple`;
+// const tempUrl = `${API_ENDPOINT}amount=10&category=24&difficulty=easy&type=multiple`;
 
 const AppContext = React.createContext();
 
@@ -89,6 +89,10 @@ const AppProvider = ({ children }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const { amount, category, difficulty } = quiz;
+    const url = `${API_ENDPOINT}amount=${amount}&category=${table[category]}&difficulty=${difficulty}&type=multiple`;
+    console.log('woof');
+    fetchQuestions(url);
   };
 
   // useEffect(() => {
