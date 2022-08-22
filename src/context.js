@@ -10,8 +10,8 @@ const table = {
 const API_ENDPOINT = 'https://opentdb.com/api.php?';
 
 const url = '';
-const tempUrl = `${API_ENDPOINT}amount=50&category=24&difficulty=medium`;
-// const tempUrl = `${API_ENDPOINT}amount=10&category=23&difficulty=easy&type=multiple`;
+// const tempUrl = `${API_ENDPOINT}amount=50&category=24&difficulty=medium`;
+const tempUrl = `${API_ENDPOINT}amount=10&category=23&difficulty=easy&type=multiple`;
 
 const AppContext = React.createContext();
 
